@@ -1,0 +1,43 @@
+CREATE TABLE users(
+    chat_id INT PRIMARY KEY,
+    phone_number BIGINT NOT NULL UNIQUE,
+    first_name VARCHAR(25),
+    username VARCHAR(25),
+    balance DOUBLE PRECISION DEFAULT 0, 
+    money_made DOUBLE PRECISION DEFAULT 0,
+    verified BOOL DEFAULT FALSE,
+    jobs_completed INT DEFAULT 0,
+    rate FLOAT DEFAULT 0, 
+    level INT DEFAULT 0);
+
+CREATE TABLE admins(
+    chat_id INT PRIMARY KEY,
+    phone_number BIGINT NOT NULL UNIQUE,
+    first_name VARCHAR(25),
+    username VARCHAR(25), 
+    level INT DEFAULT 0);
+
+CREATE TABLE jobs(
+    job_id BIGSERIAL PRIMARY KEY,
+    chat_id INT UNIQUE,
+    title VARCHAR(25),
+    discription TEXT,
+    tag VARCHAR(15),
+    type VARCHAR(15),
+    payment_method VARCHAR(25),
+    deposit BOOL DEFAULT FALSE,
+    price DOUBLE PRECISION DEFAULT 0,
+    level INT DEFAULT 0,
+    status VARCHAR(15),
+    message_id int,
+    time TIMESTAMP);
+
+CREATE TABLE proposal(
+    proposal_id BIGSERIAL PRIMARY KEY,
+    chat_id INT UNIQUE,
+    discription VARCHAR(250),
+    price DOUBLE PRECISION DEFAULT 0,
+    complition_time INT DEFAULT 1,
+    time TIMESTAMP);
+
+
